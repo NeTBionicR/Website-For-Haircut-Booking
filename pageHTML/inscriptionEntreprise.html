@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles.css">
+    <title>Inscription Entreprise</title>
+    <style>
+        .row {
+            display: flex;
+            
+            justify-content: space-around;
+            width: 100%;
+            margin: 10px 0;
+        }
+        .input-box {
+            flex: 1;
+            margin-right: 10px;
+            position: relative;
+            padding: 10px;
+        }
+        .input-box:last-child {
+            margin-right: 0;
+        }
+        .input-field {
+            width: 100%;
+            padding-left: 35px;
+        }
+        i {
+            position: absolute;
+            left: 10px;
+            top: 18px;
+            color: #666;
+        }
+        .full-width {
+            flex-basis: 100%;
+            margin-right: 0;
+        }
+        .submit, .btn {
+            width: auto;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            border: none;
+            border-radius: 30px;
+            transition: .3s ease-in-out;
+        }
+        .submit:hover, .btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        .add-service-btn, .remove-service-btn{
+            width: auto;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            border: none;
+            border-radius: 30px;
+            transition: .3s ease-in-out;
+        }
+        .add-service-btn:hover, .remove-service-btn:hover{
+            background: rgba(255, 255, 255, 0.5);
+        }
+        form {
+            width: 100%;
+            max-width: none; /* No max width */
+            margin-top: 120px;
+        }
+        textarea {
+            height: auto;
+            resize: vertical; /* Allow resizing vertically */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <video id="video1" src="/Background_Video_Connection.mp4" autoplay muted loop plays-inline class="back-video"></video>
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>Clipper Link MTL .</p>
+            </div>
+            <div class="nav-menu" id="navMenu" style="right: 20%; pointer-events: none; opacity: 0.5;">
+                <ul>
+                    <li><a href="acceuil.html" class="link">Acceuil</a></li>
+                    <li><a href="Salons.html" class="link">Salons</a></li>
+                    <li><a href="Apropos.html" class="link">À propos</a></li>
+                    <li><a href="contact.html" class="link">Contact</a></li>
+                    <li><a href="inscription.html" class="link">Connexion/Inscription</a></li>
+                </ul>
+            </div>
+            <div class="nav-button" style="visibility: hidden" disabled>
+                <button class="btn white-btn" id="loginBtn" onclick="login()">Connexion</button>
+                <button class="btn" id="registerBtn" onclick="register()">Inscription</button>
+            </div>
+            <div class="nav-menu-btn" style="visibility: hidden" disabled>
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+        <form id="entrepriseForm" novalidate>
+            <header>Inscription de l'Entreprise</header>
+            <div class="row">
+                <div class="input-box">
+                    <input type="text" class="input-field" id="addressInput" placeholder="Adresse" required>
+                    <i class="bx bx-map"></i>
+                    <span class="warning-message"></span>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" id="postalCodeInput" placeholder="Code Postal (Ex: H1H 1H1)" pattern="^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$" required>
+                    <i class="bx bx-mail-send"></i>
+                    <span class="warning-message"></span>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" id="phoneInput" placeholder="Numéro de Téléphone (Ex: 5141234567)" pattern="^514[0-9]{7}|438[0-9]{7}|263[0-9]{7}$" required>
+                    <i class="bx bx-phone"></i>
+                    <span class="warning-message"></span>
+                </div>
+            </div>
+            <div id="serviceList">
+                <div class="row full-width">
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Service Offert" name="serviceOffered" required>
+                        <i class="bx bx-briefcase"></i>
+                        <span class="warning-message"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button type="button" class="btn add-service-btn" onclick="addService()">Ajouter un service</button>
+                <button type="button" class="btn remove-service-btn" onclick="removeService()">Enlever un service</button>
+            </div>
+            <div class="row">
+                <div class="input-box">
+                    <input type="text" class="input-field" id="mondayInput" placeholder="Lundi (Ex: 08h00 - 19h00 ou Fermé)" pattern="^(Fermé|([0-1]?[0-9]|2[0-3])h[0-5][0-9] - ([0-1]?[0-9]|2[0-3])h[0-5][0-9])$" required>
+                    <i class="bx bx-time-five"></i>
+                    <span class="warning-message"></span>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" id="tuesdayInput" placeholder="Mardi (Ex: 08h00 - 19h00 ou Fermé)" pattern="^(Fermé|([0-1]?[0-9]|2[0-3])h[0-5][0-9] - ([0-1]?[0-9]|2[0-3])h[0-5][0-9])$" required>
+                    <i class="bx bx-time-five"></i>
+                    <span class="warning-message"></span>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" id="wednesdayInput" placeholder="Mercredi (Ex: 08h00 - 19h00 ou Fermé)" pattern="^(Fermé|([0-1]?[0-9]|2[0-3])h[0-5][0-9] - ([0-1]?[0-9]|2[0-3])h[0-5][0-9])$" required>
+                    <i class="bx bx-time-five"></i>
+                    <span class="warning-message"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-box">
+                    <input type="text" class="input-field" id="thursdayInput" placeholder="Jeudi (Ex: 08h00 - 19h00 ou Fermé)" pattern="^(Fermé|([0-1]?[0-9]|2[0-3])h[0-5][0-9] - ([0-1]?[0-9]|2[0-3])h[0-5][0-9])$" required>
+                    <i class="bx bx-time-five"></i>
+                    <span class="warning-message"></span>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" id="fridayInput" placeholder="Vendredi (Ex: 08h00 - 19h00 ou Fermé)" pattern="^(Fermé|([0-1]?[0-9]|2[0-3])h[0-5][0-9] - ([0-1]?[0-9]|2[0-3])h[0-5][0-9])$" required>
+                    <i class="bx bx-time-five"></i>
+                    <span class="warning-message"></span>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" id="saturdayInput" placeholder="Samedi (Ex: 08h00 - 19h00 ou Fermé)" pattern="^(Fermé|([0-1]?[0-9]|2[0-3])h[0-5][0-9] - ([0-1]?[0-9]|2[0-3])h[0-5][0-9])$" required>
+                    <i the="bx bx-time-five"></i>
+                    <span class="warning-message"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-box">
+                    <input type="text" class="input-field" id="sundayInput" placeholder="Dimanche (Ex: 08h00 - 19h00 ou Fermé)" pattern="^(Fermé|([0-1]?[0-9]|2[0-3])h[0-5][0-9] - ([0-1]?[0-9]|2[0-3])h[0-5][0-9])$" required>
+                    <i class="bx bx-time-five"></i>
+                    <span class="warning-message"></span>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" id="priceRangeInput" placeholder="Échelle des prix (Ex: 30$ - 120$)" pattern="^\d+\$ - \d+\$$" required>
+                    <i class="bx bx-dollar"></i>
+                    <span class="warning-message"></span>
+                </div>                
+                <div class="input-box">
+                    <input type="url" class="input-field" id="websiteInput" placeholder="Site Web">
+                    <i class="bx bx-world"></i>
+                    <span class="warning-message"></span>
+                </div>
+            </div>
+            <div class="input-box full-width">
+                <textarea id="descriptionInput" class="input-field" placeholder="Description"></textarea>
+                <i class="bx bx-edit"></i>
+                <span class="warning-message"></span>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" href="/acceuil.html" value="Enregistrer l'entreprise">
+            </div>
+        </form>
+    </div>
+    <script src="/inscriptionEntreprise.js"></script>
+</body>
+</html>

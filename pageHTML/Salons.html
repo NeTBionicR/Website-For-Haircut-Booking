@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .services-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .left-div {
+            width: 50%;
+            padding: 20px;
+            padding-top: 5%;
+        }
+
+        .container-up-left {
+            flex: 1;
+            margin: 20px;
+            padding: 20px;
+            background-color: transparent;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            max-height: 100%;
+        }
+
+        .service {
+            height: 170px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .service:hover {
+            background-color: #e9e9e9;
+        }
+
+        .service h2 {
+            margin-top: 0;
+        }
+
+        .service p {
+            margin: 5px 0;
+        }
+
+        .right-div {
+            width: 50%;
+            padding: 20px;
+            padding-top: 9.9%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #map-container {
+            flex: 1;
+            position: relative;
+            background-color: rgb(229, 227, 223);
+            margin: 25px;
+            height: 0;
+            padding-bottom: 75%;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container-up-right {
+            flex: 1;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            max-height: 700px;
+            text-align: center; /* Centrer le texte */
+        }
+
+        .hours-table {
+            margin: 0 auto; /* Centrer la table */
+        }
+
+
+        .container-down-right {
+            margin-top: 20px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .reserver, .favorite, .defavorite, .visit {
+            background-color: rgb(2, 158, 255);
+            color: white;
+            border: none;
+            height: 46px;
+            width: 100px;
+            border-radius: 18px;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .favorite {
+            background-color: green;
+            margin-left: 5px;
+        }
+
+        .defavorite {
+            background-color: red;
+            margin-left: 5px;
+        }
+
+        .visit {
+            background-color: grey;
+            width: 150px;
+            margin-left: 5px;
+        }
+
+        .portfolio-container {
+            position: relative;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .portfolio-image {
+            max-width: 40%;
+            height: auto;
+            cursor: pointer;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 24px;
+            color: #333;
+            user-select: none;
+        }
+
+        .arrow.left {
+            left: 10px;
+        }
+
+        .arrow.right {
+            right: 10px;
+        }
+
+        .indicators {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .indicator.active {
+            background-color: #333;
+        }
+
+        li {
+            list-style-type: none;
+        }
+    </style>
+    <title>Nos Salons</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <video id="video1" src="/Background_Video_Connection.mp4" autoplay muted loop plays-inline class="back-video"></video>
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>Clipper Link MTL .</p>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="acceuil.html" class="link">Acceuil</a></li>
+                    <li><a href="Salons.html" class="link active">Salons</a></li>
+                    <li><a href="Apropos.html" class="link">À propos</a></li>
+                    <li><a href="contact.html" class="link">Contact</a></li>
+                    <li><a href="inscription.html" class="link">Connexion/Inscription</a></li>
+                </ul>
+            </div>
+            <div class="nav-button" style="visibility: hidden" disabled>
+                <button class="btn white-btn" id="loginBtn" onclick="login()">Connexion</button>
+                <button class="btn" id="registerBtn" onclick="register()">Inscription</button>
+            </div>
+            <div class="nav-menu-btn" style="visibility: hidden" disabled>
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+        <!----------------------------- Services Section ----------------------------------->
+        <div class="left-div" style="background-color: transparent;">
+            <div class="container-up-left" id="salons-container">
+
+            </div>
+        </div>
+
+        <div class="right-div">
+            <div class="container-up-right" id="info-container">
+                <!-- Les informations des salons seront insérées ici par JavaScript -->
+            </div>
+            <div class="container-down-right" id="map-container">
+                <iframe id="map" class="map" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>        
+    </div>
+    <script src="/Salon.js"></script>
+</body>
+
+</html>

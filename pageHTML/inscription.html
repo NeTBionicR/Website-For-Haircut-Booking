@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles.css">
+    <title>Connexion & Inscription</title>
+</head>
+<body>
+ <div class="wrapper">
+    <video id="video1" src="/Background_Video_Connection.mp4" autoplay muted loop plays-inline class="back-video"></video>
+    <nav class="nav">
+        <div class="nav-logo">
+            <p>Clipper Link MTL .</p>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="acceuil.html" class="link">Acceuil</a></li>
+                <li><a href="Salons.html" class="link">Salons</a></li>
+                <li><a href="Apropos.html" class="link">À propos</a></li>
+                <li><a href="contact.html" class="link">Contact</a></li>
+                <li><a href="inscription.html" class="link active">Connexion/Inscription</a></li>
+            </ul>
+        </div>
+        <div class="nav-button">
+            <button class="btn white-btn" id="loginBtn" onclick="login()">Connexion</button>
+            <button class="btn" id="registerBtn" onclick="register()">Inscription</button>
+        </div>
+        <div class="nav-menu-btn">
+            <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+        </div>
+    </nav>
+    <div class="form-box">
+        <div class="login-container" id="login">
+            <div class="top">
+                <span>Vous n'avez pas de compte? <a href="#" onclick="register()">Inscrivez-vous</a></span>
+                <header>Connexion</header>
+            </div>
+            <div class="input-wrapper" id="loginEmailWrapper">
+                <div class="input-box">
+                    <input type="email" class="input-field" id="loginEmail" placeholder="Courriel" required>
+                    <i class="bx bx-user"></i>
+                </div>
+                <span class="warning-message"></span>
+            </div>
+            <div class="input-wrapper" id="loginPasswordWrapper">
+                <div class="input-box">
+                    <input type="password" class="input-field" id="loginPassword" placeholder="Mot de passe" required>
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <span class="warning-message"></span>
+            </div>
+            <div id="loginError" class="warning-message"></div>
+            <div class="input-box">
+                <button type="submit" class="submit" onclick="submitLogin()">Se connecter</button>
+            </div>
+            <div class="two-col">
+                <div class="one" style="visibility: hidden; pointer-events: none;">
+                    <input type="checkbox" id="login-check">
+                    <label for="login-check">Rappelle-toi de moi</label>
+                </div>
+                <div class="two">
+                    <label><a href="#" style="visibility: hidden; pointer-events: none;">Mot de passe oublié?</a></label>
+                </div>
+            </div>
+        </div>
+        <div class="register-container" id="register">
+            <div class="top">
+                <span>T'as déjà un compte? <a href="#" onclick="login()">Connecte toi</a></span>
+                <header>Inscription</header>
+                <div class="account-type">
+                    <button class="account-btn" id="personnelBtn" onclick="selectAccount('personnel')" data-type="personnel">Personnel</button>
+                    <button class="account-btn" id="entrepriseBtn" onclick="selectAccount('entreprise')" data-type="entreprise">Entreprise</button>
+                </div>
+            </div>
+            <div class="two-forms">
+                <div class="input-wrapper" id="firstNameWrapper">
+                    <div class="input-box">
+                        <input type="text" class="input-field" id="firstNameInput" placeholder="Prénom" required>
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <span class="warning-message"></span>
+                </div>
+                <div class="input-wrapper" id="lastNameWrapper">
+                    <div class="input-box">
+                        <input type="text" class="input-field" id="lastNameInput" placeholder="Nom de famille" required>
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <span class="warning-message"></span>
+                </div>
+            </div>
+            <div class="input-wrapper" id="companyNameWrapper" style="display: none;">
+                <div class="input-box">
+                    <input type="text" class="input-field" id="companyNameInput" placeholder="Nom de l'entreprise" required>
+                    <i class="bx bx-building"></i>
+                </div>
+                <span class="warning-message"></span>
+            </div>            
+            <div class="input-wrapper" id="emailWrapper">
+                <div class="input-box">
+                    <input type="email" class="input-field" id="emailInput" placeholder="Courriel" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <span class="warning-message"></span>
+            </div>
+            <div class="input-wrapper" id="passwordWrapper">
+                <div class="input-box">
+                    <input type="password" class="input-field" id="passwordInput" placeholder="Mot de passe" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}">
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <span class="warning-message"></span>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" value="Inscrire" onclick="submitRegistration(event)">
+            </div>
+            <div class="two-col">
+                <div class="one" style="visibility: hidden; pointer-events: none;" disabled>
+                    <input type="checkbox" id="register-check">
+                    <label for="register-check"> Rapelle toi de moi</label>
+                </div>
+                <div the="two">
+                    <label><a href="#">Terms & conditions</a></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   
+<script src="/inscription.js"></script>
+</body>
+</html>

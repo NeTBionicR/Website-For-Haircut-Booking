@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .wrapper {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        #reviews-container {
+            background-color: #f8f8f8;
+            margin-top: 120px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        #reviews-container h2 {
+            margin: 0 0 10px 0;
+        }
+
+        @keyframes slide {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        #reviews-wrapper {
+            display: flex;
+            width: 200%;
+            animation: 15s slide infinite linear;
+        }
+
+        #reviews {
+            display: flex;
+            width: 100%;
+        }
+
+        .review {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 0 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            min-width: 200px;
+            box-sizing: border-box;
+            flex: 0 0 auto;
+        }
+
+        .review h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2em;
+        }
+
+        .review p {
+            margin: 5px 0;
+        }
+
+        .contact-form {
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
+        .rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            font-size: 2em;
+            color: lightgray;
+            cursor: pointer;
+        }
+
+        .rating label:hover,
+        .rating label:hover ~ label,
+        .rating input:checked ~ label {
+            color: gold;
+        }
+
+        .rating input:checked + label:hover,
+        .rating input:checked + label:hover ~ label,
+        .rating input:checked ~ label:hover,
+        .rating input:checked ~ label:hover ~ label {
+            color: gold;
+        }
+
+        .review .stars {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .review .stars i {
+            font-size: 1.2em;
+            color: gold;
+            margin-right: 2px;
+        }
+
+    </style>
+    <title>Contact</title>
+</head>
+<body>
+    <div class="wrapper">
+        <video id="video1" src="/Background_Video_Connection.mp4" autoplay muted loop plays-inline class="back-video"></video>
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>Clipper Link MTL.</p>
+            </div>
+            <div class="nav-menu" id="navMenu" style="right: 20%">
+                <ul>
+                    <li><a href="acceuil.html" class="link">Acceuil</a></li>
+                    <li><a href="Salons.html" class="link">Salons</a></li>
+                    <li><a href="Apropos.html" class="link">À propos</a></li>
+                    <li><a href="contact.html" class="link active">Contact</a></li>
+                    <li><a href="inscription.html" class="link">Connexion/Inscription</a></li>
+                </ul>
+            </div>
+            <div class="nav-button" style="visibility: hidden" disabled>
+                <button class="btn white-btn" id="loginBtn" onclick="login()">Connexion</button>
+                <button class="btn" id="registerBtn" onclick="register()">Inscription</button>
+            </div>
+            <div class="nav-menu-btn" style="visibility: hidden" disabled>
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+        <!----------------------------- Contact Form ----------------------------------->
+        <div class="contact-form">
+            <header>Contactez-nous</header>
+            <form id="contactForm" action="#" method="POST">
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Nom" name="UserName">
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" class="input-field" placeholder="Email" name="UserMail">
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="input-box">
+                    <textarea class="input-field" placeholder="Message" style="resize: vertical; vertical-align: middle;" name="description"></textarea>
+                    <i class="bx bx-message"></i>
+                </div>
+                <div class="input-box rating">
+                    <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                    <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                    <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                    <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                    <input type="radio" id="star1" name="rating" value="1" checked><label for="star1">★</label>
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Envoyer">
+                </div>
+            </form>
+        </div>
+
+        <!-- Reviews Container -->
+        <div id="reviews-container">
+            <h2>Reviews</h2>
+            <div id="reviews-wrapper">
+                <div id="reviews"></div>
+            </div>
+        </div>
+    </div>
+    <script src="/contact.js"></script>
+</body>
+</html>

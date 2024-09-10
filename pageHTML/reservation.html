@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles.css">
+    <title>Réservation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .reserved {
+            color: #999;
+        }
+
+        .reservation-section {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            margin: 100px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #333333;
+        }
+
+        form {
+            display: inline-block; 
+            text-align: left;
+        }
+
+        form label {
+            display: block;
+            font-size: 1em;
+            color: #333333;
+            margin-bottom: 5px;
+        }
+
+        form select,
+        form input {
+            font-size: 1em;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            background: #ffffff;
+        }
+
+        form button {
+            background-color: #008cba; 
+            color: #ffffff;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #005f6b;
+        }
+
+        #annuler {
+            background-color: red;
+        }
+
+        #annuler:hover {
+            background-color: darkred;
+        }
+
+        .reserved {
+            color: #999; /* Couleur grise */
+        }
+
+        form > * {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <video id="video1" src="/Background_Video_Connection.mp4" autoplay muted loop plays-inline class="back-video"></video>
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>Clipper Link MTL</p>
+            </div>
+            <div class="nav-menu" id="navMenu" style="right: 20%;">
+                <ul>
+                    <li><a href="acceuil.html" class="link">Acceuil</a></li>
+                    <li><a href="Salons.html" class="link">Salons</a></li>
+                    <li><a href="Apropos.html" class="link">À propos</a></li>
+                    <li><a href="contact.html" class="link">Contact</a></li>
+                    <li><a href="inscription.html" class="link">Connexion/Inscription</a></li>
+                </ul>
+            </div>
+            <div class="nav-button" style="visibility: hidden" disabled>
+                <button class="btn white-btn" id="loginBtn" onclick="login()">Connexion</button>
+                <button class="btn" id="registerBtn" onclick="register()">Inscription</button>
+            </div>
+            <div class="nav-menu-btn" style="visibility: hidden" disabled>
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+        <!-- Section de réservation -->
+        <div class="reservation-section" id="reservation-section">
+            <form id="reservationForm">
+                <label for="services">Choisir des services:</label>
+                <div id="services" name="services">
+                    ${salon.ServiceOffert.split(';').map(service => `
+                        <label>
+                            <input type="checkbox" name="service" value="${service.trim()}"> ${service.trim()}
+                        </label>
+                    `).join('')}
+                </div>
+                <p id="errorServiceMessage" style="color: red; display: none;">Veuillez sélectionner au moins un service.</p>
+                <label for="date">Choisir une date :</label>
+                <input type="date" id="date" name="date" required>
+                <p id="errorDateMessage" style="color: red; display: none;">Veuillez sélectionner une date.</p>
+                <label for="heure">Choisir une heure :</label>
+                <select id="heure" name="heure" required>
+                    <option value="" disabled selected>Choisir une heure</option>
+                </select>
+                <p id="errorTimeMessage" style="color: red; display: none;">Veuillez sélectionner une heure.</p>
+                <p id="closedMessage" class="closed-message" style="display: none;">Ce salon est fermé ce jour-là.</p>
+                <br><br>
+                <button type="button" id="confirmer">Confirmer la réservation</button>
+                <button type="button" id="annuler">Annuler</button>
+            </form>                     
+        </div>
+    </div>
+    <script src="reservation.js"></script>
+</body>
+</html>

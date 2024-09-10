@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles.css">
+    <title>À propos</title>
+    <style>
+        /* Général */
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 100px auto;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .about-section header {
+            font-size: 2.5em;
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 2em;
+            color: #333;
+            margin-top: 40px;
+            margin-bottom: 10px;
+        }
+
+        .about-section p {
+            font-size: 1.1em;
+            line-height: 1.6em;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .about-section p strong {
+            color: #333;
+        }
+
+        .about-section p:last-child {
+            margin-bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+ <div class="wrapper">
+    <video id="video1" src="/Background_Video_Connection.mp4" autoplay muted loop plays-inline class="back-video"></video>
+    <nav class="nav">
+        <div class="nav-logo">
+            <p>Clipper Link MTL .</p>
+        </div>
+        <div class="nav-menu" id="navMenu" style="right : 20%;">
+            <ul>
+                <li><a href="acceuil.html" class="link">Acceuil</a></li>
+                <li><a href="Salons.html" class="link">Salons</a></li>
+                <li><a href="Apropos.html" class="link active">À propos</a></li>
+                <li><a href="contact.html" class="link">Contact</a></li>
+                <li><a href="inscription.html" class="link">Connexion/Inscription</a></li>
+            </ul>
+        </div>
+        <div class="nav-button" style="visibility: hidden" disabled>
+            <button class="btn white-btn" id="loginBtn" onclick="login()">Connexion</button>
+            <button class="btn" id="registerBtn" onclick="register()">Inscription</button>
+        </div>
+        <div class="nav-menu-btn" style="visibility: hidden" disabled>
+            <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+        </div>
+    </nav>
+<!----------------------------- About Section ----------------------------------->
+    <div class="about-section">
+        <header>À propos de nous</header>
+        <p>Bienvenue sur Clipper Link MTL, votre destination en ligne pour réserver des rendez-vous chez le coiffeur en toute simplicité et efficacité. Notre mission est de révolutionner la manière dont les clients interagissent avec les salons de coiffure en offrant une plateforme intuitive, conviviale et innovante. Chez Clipper Link MTL, nous croyons que prendre soin de soi devrait être une expérience agréable, sans stress ni tracas. C'est pourquoi nous avons créé un service qui met la technologie au service de votre bien-être et de votre style.</p>
+
+        <h2>Notre Vision</h2>
+        <p>La vision de Clipper Link MTL est de créer un écosystème où la beauté et la technologie se rencontrent pour offrir une expérience utilisateur exceptionnelle. Nous aspirons à être le leader du marché dans la réservation de services de coiffure en ligne, en connectant les clients aux meilleurs professionnels de la coiffure dans leur région. Notre objectif est de rendre chaque interaction entre le client et le coiffeur aussi fluide et agréable que possible, en supprimant les obstacles traditionnels à la prise de rendez-vous.</p>
+
+        <h2>Nos Valeurs</h2>
+        <p><strong>Simplicité</strong> : Nous croyons en la puissance de la simplicité. Notre plateforme est conçue pour être intuitive et facile à utiliser, que vous soyez un habitué des réservations en ligne ou un nouveau venu dans le monde numérique.</p>
+        <p><strong>Fiabilité</strong> : La confiance est au cœur de notre service. Nous nous engageons à vous fournir des informations précises et à jour sur les salons et les coiffeurs, garantissant ainsi une expérience fiable à chaque réservation.</p>
+        <p><strong>Innovation</strong> : Nous sommes passionnés par l'innovation et nous nous efforçons constamment d'améliorer notre plateforme avec les dernières technologies et fonctionnalités, afin de vous offrir le meilleur service possible.</p>
+        <p><strong>Satisfaction Client</strong> : Votre satisfaction est notre priorité. Nous travaillons en étroite collaboration avec les salons de coiffure pour nous assurer que chaque rendez-vous répond à vos attentes et dépasse même vos espérances.</p>
+
+        <h2>Ce que Nous Offrons</h2>
+        <p><strong>Réservation Instantanée</strong> : Grâce à notre interface intuitive, vous pouvez réserver un rendez-vous chez le coiffeur en quelques clics. Fini les appels téléphoniques interminables ou les visites impromptues.</p>
+        <p><strong>Accès à une Large Sélection de Salons</strong> : Nous collaborons avec un réseau vaste et varié de salons de coiffure, vous permettant de trouver facilement un coiffeur qui correspond à vos besoins et préférences, que ce soit pour une coupe, une coloration, ou tout autre service capillaire.</p>
+        <p><strong>Évaluations et Avis</strong> : Lisez les avis et évaluations des autres clients pour choisir le coiffeur parfait. La transparence est essentielle pour nous, et nous voulons que vous soyez pleinement informé avant de prendre votre décision.</p>
+        <p><strong>Notifications et Rappels</strong> : Recevez des rappels de votre rendez-vous pour ne jamais oublier vos engagements. Vous pouvez également gérer et modifier vos réservations directement depuis notre plateforme.</p>
+        <p><strong>Offres Spéciales et Promotions</strong> : Profitez des offres exclusives et des promotions disponibles uniquement pour nos utilisateurs. Nous négocions régulièrement des réductions et des avantages pour vous offrir le meilleur rapport qualité-prix.</p>
+
+        <h2>Comment ça Marche</h2>
+        <p><strong>Inscription</strong> : Créez un compte gratuit en quelques minutes. Il vous suffit de fournir quelques informations de base pour commencer.</p>
+        <p><strong>Recherche</strong> : Utilisez notre moteur de recherche pour trouver des salons de coiffure à proximité ou dans la région de votre choix. Filtrez les résultats selon vos critères spécifiques tels que les services proposés, les horaires d'ouverture, et les avis des clients.</p>
+        <p><strong>Réservation</strong> : Sélectionnez un créneau horaire qui vous convient et réservez votre rendez-vous. Vous recevrez une confirmation instantanée par email et/ou SMS.</p>
+        <p><strong>Profitez de votre Service</strong> : Rendez-vous au salon à l'heure convenue et profitez de votre service de coiffure sans aucun souci.</p>
+        <p><strong>Feedback</strong> : Après votre rendez-vous, laissez un avis pour aider d'autres utilisateurs à faire leur choix et pour nous aider à améliorer notre service.</p>
+
+        <h2>Pourquoi Nous Choisir</h2>
+        <p>Chez Clipper Link MTL, nous nous engageons à rendre votre expérience de réservation aussi agréable et sans stress que possible. Notre équipe dévouée travaille sans relâche pour améliorer et enrichir notre plateforme, en tenant compte de vos commentaires et suggestions. Nous croyons en un avenir où la technologie simplifie notre quotidien, et nous sommes fiers de contribuer à cette vision en transformant la manière dont vous accédez aux services de coiffure.</p>
+        <p>Nous vous invitons à rejoindre la communauté Clipper Link MTL dès aujourd'hui et à découvrir une nouvelle façon de prendre soin de vous. Parce que vous méritez le meilleur, laissez-nous vous aider à atteindre l'excellence en matière de coiffure.</p>
+        <p>Merci de nous faire confiance et de choisir Clipper Link MTL pour tous vos besoins de coiffure. Nous sommes impatients de vous servir!</p>
+    </div>
+</div>   
+</body>
+<script src="/Apropos.js"></script>
+</html>

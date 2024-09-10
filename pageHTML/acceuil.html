@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* Général */
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .wrapper {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .back-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Boutons */
+        .btn {
+            font-size: 1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn.white-btn {
+            background: #fff;
+            color: #007bff;
+            border: 1px solid #007bff;
+        }
+
+        .btn.white-btn:hover {
+            background: #007bff;
+            color: #fff;
+        }
+
+        .btn.btn-danger {
+            background: #dc3545;
+            color: #fff;
+        }
+
+        .btn.btn-danger:hover {
+            background: #c82333;
+        }
+
+        /* Contenu */
+        .content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            max-height: 1000px;
+            overflow-y: auto;
+            margin-top: 80px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h1 {
+            font-size: 2.5em;
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .content h2 {
+            font-size: 2em;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        .content p {
+            font-size: 1.1em;
+            line-height: 1.6em;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: #666;
+        }
+
+        .content ul li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .content p strong {
+            color: #333;
+        }
+
+        .content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Sections */
+        main {
+            margin-top: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            margin-bottom: 15px;
+        }
+
+        section p, section ul {
+            margin-bottom: 15px;
+        }
+
+
+    </style>
+    <title>Accueil</title>
+</head>
+<body>
+ <div class="wrapper">
+    <video id="video1" src="/Background_Video_Connection.mp4" autoplay muted loop plays-inline class="back-video"></video>
+    <nav class="nav" >
+        <div class="nav-logo">
+            <p>Clipper Link MTL .</p>
+        </div>
+        <div class="nav-menu" id="navMenu" style="right : 20%">
+            <ul >
+                <li><a href="acceuil.html" class="link active">Acceuil</a></li>
+                <li><a href="Salons-html" class="link">Salons</a></li>
+                <li><a href="Apropos.html" class="link">À propos</a></li>
+                <li><a href="contact.html" class="link">Contact</a></li>
+                <li><a href="inscription.html" class="link">Connexion/Inscription</a></li>
+            </ul>
+        </div>
+        <div class="nav-button" style="visibility: hidden" disabled>
+            <button class="btn white-btn" id="loginBtn" onclick="login()">Connexion</button>
+            <button class="btn" id="registerBtn" onclick="register()">Inscription</button>
+        </div>
+        <div class="nav-menu-btn" style="visibility: hidden" disabled>
+            <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+        </div>
+    </nav>
+    <div class="content">
+        <h1>Bienvenue sur Clipper Link MTL</h1>    
+    <main>
+        <section>
+            <h2>Qu'est-ce qu'un salon de coiffure ?</h2>
+            <p>Les hommes et les femmes se rendent dans un salon de coiffure pour se faire couper, coiffer et teindre les cheveux. Des coiffeurs, des stylistes, des cosmétologues, des shampouineurs et des réceptionnistes sont parmi les spécialistes employés par la plupart des salons pour répondre aux besoins des clients. Le grand public est généralement proposé une large gamme de services de coupe et de coiffure dans les établissements.</p>
+        </section>
+
+        <section>
+            <h2>Types de salons de coiffure</h2>
+            <ul>
+                <li><strong>Salon de coiffure :</strong> Ces établissements proposent une gamme complète de services, allant de la coupe traditionnelle à la coloration et aux traitements capillaires.</li>
+                <li><strong>Salon de coiffure en franchise :</strong> Faisant partie d'un réseau plus vaste, ces salons offrent une expérience uniforme à travers différentes localités. Ils sont appréciés pour leur accessibilité et leur cohérence de service.</li>
+                <li><strong>Salon de coiffure indépendant :</strong> Souvent plus personnalisés et axés sur la créativité, ces salons sont gérés de manière autonome, offrant une expérience unique à leurs clients.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Services de salon de coiffure</h2>
+            <p>Les services proposés dans un salon de coiffure incluent une variété de coupes, de colorations et de traitements capillaires, adaptés aux besoins individuels de chaque client. Des coiffures simples aux styles plus élaborés, nos professionnels sont là pour répondre à vos attentes.</p>
+        </section>
+
+        <section>
+            <h2>Pourquoi choisir notre plateforme ?</h2>
+            <p>Notre plateforme vise à simplifier votre expérience en vous connectant avec une variété de salons de coiffure, chacun offrant des services uniques et personnalisés. Que vous recherchiez un salon en franchise pour une expérience standardisée ou un salon indépendant pour une touche personnalisée, nous avons ce qu'il vous faut.</p>
+            <p><strong>Explorez nos options de salon dès aujourd'hui et découvrez une nouvelle façon de prendre soin de vos cheveux !</strong></p>
+        
+        </section>
+    </main>
+</div>
+</div>   
+</body>
+<script src="/acceuil.js"></script>
+</html>
