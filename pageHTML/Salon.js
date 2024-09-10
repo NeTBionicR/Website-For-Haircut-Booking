@@ -263,5 +263,5 @@ async function fetchPortfolioImages(portfolioToken) {
 function updateMapIframe(address) {
     const mapIframe = document.getElementById('map');
     const encodedAddress = encodeURIComponent(address);
-    mapIframe.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyDj_W2zsuZFvsB5ukirWyR21baPELeVEMI&q=${encodedAddress}`;
+    mapIframe.src = "place your own google maps api key here";
 }
